@@ -64,7 +64,7 @@ class indexController extends Controller
     public function init_db(){
         $settings = new settings();
         $settings->settings_key = "legume_visible";
-        $settings_value = "1";
+        $settings->value = "1";
         $settings->save();
         $admin = new admin();
         $admin->name = "Admin";
