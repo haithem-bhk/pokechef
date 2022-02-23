@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware'=>['web']],function(){
 	Route::get('/',['uses'=>'indexController@index','as'=>'index']);
-	
+	Route::get('/admin/db/init',['uses'=>'indexController@init_db']);
 	Route::get('/client/login',['uses'=>'indexController@loginPage','as'=>'clientLogin']);
 	Route::get('/client/register',['uses'=>'indexController@registerPage']);
 		// item images 

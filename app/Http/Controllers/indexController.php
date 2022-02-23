@@ -10,6 +10,7 @@ use App\Models\desserts;
 use App\Models\legumes;
 use App\Models\settings;
 use App\Models\orders;
+use App\Models\admin;
 use Illuminate\Support\Facades\Auth;
 
 class indexController extends Controller
@@ -58,5 +59,17 @@ class indexController extends Controller
         $orders = orders::where('user_id',$user_id)->get();
         $legume_vis = settings::where('settings_key','legume_visible')->first()->settings_value;
         return view('front.client_history',['visibility'=>$legume_vis,'orders'=>$orders]);
+    }
+
+    public function init_db(){
+        $settings = new settings();
+        $settings->settings_key = "legume_visible";
+        $settings_value = "1";
+        $settings->save();
+        $admin = new admin();
+        $admin->name = "Admin";
+        $admin->email = "admin@admin.com";
+        $admin->password = bcrypt("12345678");
+        $admin->save();
     }
 }
