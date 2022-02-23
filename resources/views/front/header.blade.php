@@ -48,6 +48,8 @@
 
         @endif
         @guest 
+        <li><a class="nav-link scrollto" href="/client/register">Register</a></li>
+
         <a href="/client/login" class="book-a-table-btn scrollto d-none d-lg-flex">Login</a>
 
         @endif
