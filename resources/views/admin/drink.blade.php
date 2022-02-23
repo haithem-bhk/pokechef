@@ -56,6 +56,17 @@ New Post
                       </div>
                     </div>
                     <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
+                      <div class="col-sm-5 col-md-2">
+                        <select class="form-control" name="category">
+                          <option>Assir</option>
+                          <option>Jus</option>
+                          <option>Milkshake</option>
+                          <option>Smoothie</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Visible</label>
                       <div class="col-sm-12 col-md-7">
                         <div class="form-check">

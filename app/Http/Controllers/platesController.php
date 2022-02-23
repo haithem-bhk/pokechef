@@ -343,6 +343,7 @@ class platesController extends Controller
         $drink->ingredients = implode('/',$request['ingredients']);
         $drink->description = $request['description'];
         $drink->visible = $request['visible'];
+        $drink->category = $request['category'];
         $drink->image_path = $imagename;
 
         $drink->save();
