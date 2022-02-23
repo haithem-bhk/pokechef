@@ -85,7 +85,7 @@
         <div id="card-element"></div>
     </div>
     <div id="card-errors" role="alert"></div>
-    <input class="StripeElement mb-3" type="time" name="time" placeholder="" required>
+    <input class="StripeElement mb-3 mt-3" type="time" name="time" value="{{Carbon\Carbon::now()->addMinutes(15)->format("H:i")}}" placeholder="" required>
 
     <div class="form-group mt-3">
         <button type="submit" class="btn btn-primary pay">

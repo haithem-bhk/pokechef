@@ -119,7 +119,7 @@ Route::get('/legumes',['uses'=>'indexController@getLegumePage']);
 	Route::get('/client/logout',['uses'=>'indexController@logout','as'=>'clientLogout']);
 	Route::get('/cart/payment',['uses'=>'paymentController@paymentPage','as'=>'paymentPage']);
 	Route::get('/client/history',['uses'=>'indexController@getOrderHistory','as'=>'orderHistory']);
-	Route::post('/cart/purchase/{id}',['uses'=>'paymentController@purchase','as'=>'purchase']);
+	Route::post('/cart/purchase/',['uses'=>'paymentController@purchase','as'=>'purchase']);
 });
 
 

@@ -55,10 +55,9 @@ class indexController extends Controller
     }
 
     public function getOrderHistory(){
-        $user_id = auth()->user()->id;
-        $orders = orders::where('user_id',$user_id)->get();
+
         $legume_vis = settings::where('settings_key','legume_visible')->first()->settings_value;
-        return view('front.client_history',['visibility'=>$legume_vis,'orders'=>$orders]);
+        return view('front.client_history',['visibility'=>$legume_vis]);
     }
 
     public function init_db(){

@@ -7,7 +7,7 @@ Food Orders
 @include('admin.sidebar')
 <div class="main-content">
         <section class="section">
-          <div class="section-body">
+          <div class="section-body" x-data="getOrders()">
            
             <div class="row">
               <div class="col-12">

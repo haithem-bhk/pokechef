@@ -19,7 +19,7 @@ class paymentController extends Controller
     	return view('front.payment',['intent'=>$intent,'orderid'=>$order->id,'visibility'=>$legume_vis]);
     }
 
-    public function purchase(Request $request, $id)
+    public function purchase(Request $request)
 {
     $user          = $request->user();
     $paymentMethod = $request->input('payment_method');
@@ -28,15 +28,19 @@ class paymentController extends Controller
         $order->cart_content = json_encode(Cart::content());
         $order->total =Cart::total();
         $order->pickup_time = $request['time'];
-        $order->status = "paid";
+       
         
     try {
         $user->createOrGetStripeCustomer();
         $user->updateDefaultPaymentMethod($paymentMethod);
         $user->charge($order->total * 100, $paymentMethod);
+        $order->status = "paid";
         $order->save();  
         Cart::destroy();      
     } catch (\Exception $exception) {
+        $order->status = "failed";
+        $order->save();  
+
         return back()->with('msg', $exception->getMessage());
     }
 

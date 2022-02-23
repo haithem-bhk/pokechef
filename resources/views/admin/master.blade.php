@@ -234,6 +234,14 @@
   }
 
 </script>
+<script type="text/javascript">
+    function getOrders(){
+      return {
+        orders : {!! \App\Models\orders::all() !!},
+        
+      }
+    }
+  </script>
 
 <!-- datatables.html  21 Nov 2019 03:55:25 GMT -->
 </html>  
