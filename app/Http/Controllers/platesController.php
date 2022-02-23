@@ -65,7 +65,8 @@ class platesController extends Controller
     public function getPlateImage($imageName){
     	$path = storage_path('app/public/plates/'.$imageName);
         // dd($path);
-        return Response()->file($path);
+        // return Response()->file($path);
+        return Response("200");
     }
 
     public function hidePlate(request $request){
@@ -148,7 +149,8 @@ class platesController extends Controller
     public function getSpecialImage($imageName){
         $path = storage_path('app/public/specials/'.$imageName);
         // dd($path);
-        return Response()->file($path);
+        // return Response()->file($path);
+        return Response("200");
     }
 
     public function editSpecial(Request $request,$id) {
@@ -355,7 +357,8 @@ class platesController extends Controller
     public function getDrinkImage($imageName){
         $path = storage_path('app/public/drinks/'.$imageName);
         // dd($path);
-        return Response()->file($path);
+        // return Response()->file($path);
+        return Response("200");
     }
 
 
@@ -447,7 +450,8 @@ class platesController extends Controller
     public function getLegumeImage($imageName){
         $path = storage_path('app/public/legumes/'.$imageName);
         // dd($path);
-        return Response()->file($path);
+        // return Response()->file($path);
+        return Response("200");
     }
 
 
@@ -539,7 +543,8 @@ class platesController extends Controller
     public function getDessertImage($imageName){
         $path = storage_path('app/public/desserts/'.$imageName);
         // dd($path);
-        return Response()->file($path);
+        // return Response()->file($path);
+        return Response("200");
     }
 
 
