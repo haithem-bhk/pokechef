@@ -33,10 +33,12 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
       <a class="cart" ><i class="fa fa-shopping-cart"></i></a>
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">Menu</a></li>
-        <li><a class="nav-link scrollto" href="#about">Specials</a></li>
-        <li><a class="nav-link scrollto" href="#about">Contact</a></li>
+        <li><a class="nav-link scrollto active" href="/">Home</a></li>
+        <li><a class="nav-link scrollto" href="#plates">Plates</a></li>
+        <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
+        <li><a class="nav-link scrollto" href="#drinks">Drinks</a></li>
+        <li><a class="nav-link scrollto" href="#dessert">Dessert</a></li>
+        <li><a class="nav-link scrollto" href="/composé">Composé</a></li>
         @if($visibility)
         <li><a class="nav-link scrollto" href="/legumes">Legumes</a></li>
 

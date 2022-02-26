@@ -1,6 +1,6 @@
 
 
-<section id="menu" class="menu section-bg">
+<section id="drinks" class="menu section-bg">
   <div class="container" data-aos="fade-up">
 
     <div class="section-title">

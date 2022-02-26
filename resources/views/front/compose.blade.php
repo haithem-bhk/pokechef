@@ -178,7 +178,7 @@
 										<label
 										class="flex justify-start items-center text-truncate rounded-lg bg-white pl-4 pr-6 py-3 shadow-sm mr-4">
 										<div class="text-teal-600 mr-3">
-											<input type="radio"  :value="item.name"  x-model="selected.garniture" class="form-radio focus:outline-none focus:shadow-outline" />
+											<input type="checkbox"  :value="item.name"  x-model="selected.garniture" class="form-checkbox focus:outline-none focus:shadow-outline" />
 										</div>
 										<div x-text="item.name" class="select-none text-gray-700"  ></div>
 									</label>
@@ -244,7 +244,7 @@
 								<label
 								class="flex justify-start items-center text-truncate rounded-lg bg-white pl-4 pr-6 py-3 shadow-sm mr-4">
 								<div class="text-teal-600 mr-3">
-									<input type="radio"  :value="item.name"  x-model="selected.topping" class="form-radio focus:outline-none focus:shadow-outline" />
+									<input type="checkbox"  :value="item.name"  x-model="selected.topping" class="form-checkbox focus:outline-none focus:shadow-outline" />
 								</div>
 								<div x-text="item.name" class="select-none text-gray-700"  ></div>
 							</label>

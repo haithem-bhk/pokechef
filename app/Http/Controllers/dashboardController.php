@@ -9,6 +9,8 @@ use App\Models\orders;
 use App\Models\drinks;
 use App\Models\legumes;
 use App\Models\desserts;
+use App\Models\settings;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class dashboardController extends Controller
@@ -101,6 +103,28 @@ class dashboardController extends Controller
     }
     function getArchive(){
         return view('admin.orders');
+    }
+
+    function getLive(){
+        $plates = plates::all();
+        $specials = specials::all();
+        $drinks = drinks::all();
+        $desserts = desserts::all();
+        $legumes = legumes::all();
+        $legume_vis = settings::where('settings_key','legume_visible')->first()->settings_value;
+       return view('admin.live',['plates'=>$plates,'specials'=>$specials,'drinks'=>$drinks,'desserts'=>$desserts,"legumes"=>$legumes,"visibility"=>$legume_vis]);
+    }
+
+    function postLiveOrder() {
+        $order = new orders();
+        $order->user_id = auth()->user()->id;
+        $order->cart_content = json_encode(Cart::content());
+        $order->total =Cart::total();
+        $order->pickup_time = Carbon::now();
+        $order->status = "At Restaurent";
+        $order->save();
+        Cart::destroy();
+        return redirect()->back()->with('order_id',$order->id);
     }
 
 }

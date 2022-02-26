@@ -53,12 +53,12 @@
               <a href="/admin/dessertslist" class="nav-link"><i class="material-icons">list</i><span>Dessert List</span></a>
             </li>
 
+            <li class="menu-header">Live</li>
 
-
-
+            <li><a class="nav-link" href="/admin/live"><i class="material-icons">live_tv</i><span>Live</span></a></li>
+            
 
             <li class="menu-header">Management</li>
-            
            
             <li><a class="nav-link" href="/admin/employeelist"><i class="material-icons">group</i><span>Employee List</span></a></li>
             <li><a class="nav-link" href="/admin/shifts"><i class="material-icons">date_range</i><span>Work Schedule</span></a></li>

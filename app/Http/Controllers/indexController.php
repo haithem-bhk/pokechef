@@ -22,8 +22,8 @@ class indexController extends Controller
         $drinks = drinks::all();
         $desserts = desserts::all();
         $legume_vis = settings::where('settings_key','legume_visible')->first()->settings_value;
-
-    	return view('front.master',['plates'=>$plates,'specials'=>$specials,'drinks'=>$drinks,'desserts'=>$desserts,"visibility"=>$legume_vis]);
+        $video = settings::where('settings_key','header_video')->first()->settings_value;
+    	return view('front.master',['plates'=>$plates,'specials'=>$specials,'drinks'=>$drinks,'desserts'=>$desserts,"visibility"=>$legume_vis,'video'=>$video]);
     }
     public function getLegumePage(){
         $legumes = legumes::all();
@@ -32,6 +32,11 @@ class indexController extends Controller
     }
     public function loginPage(){
     	return view('auth.login');
+    }  
+
+    public function getComposePage(){
+        $legume_vis = settings::where('settings_key','legume_visible')->first()->settings_value;
+        return view('front.compose_page',['visibility'=>$legume_vis]);
     }
 
     public function registerPage(){
@@ -65,10 +70,19 @@ class indexController extends Controller
         // $settings->settings_key = "legume_visible";
         // $settings->settings_value = "1";
         // $settings->save();
-        $admin = new admin();
-        $admin->name = "Admin";
-        $admin->email = "admin@admin.com";
-        $admin->password = bcrypt("12345678");
-        $admin->save();
+        // $admin = new admin();
+        // $admin->name = "Admin";
+        // $admin->email = "admin@admin.com";
+        // $admin->password = bcrypt("12345678");
+        // $admin->save();
+        // $settings = new settings();
+        // $settings->settings_key = "compose_price";
+        // $settings->settings_value = "12";
+        // $settings->save();
+        $settings = new settings();
+        $settings->settings_key = "header_video";
+        $settings->settings_value = "https://www.youtube.com/watch?v=oDoya3J-xjU";
+        $settings->save();
+
     }
 }

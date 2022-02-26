@@ -8,16 +8,18 @@
 
 </head>
 <body x-data="getData">
-  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-  @include('front.header')
-  @include('front.hero')
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+	<div id="preloader"></div>
+<a   class="cart back-to-top d-flex align-items-center justify-content-center active">Payer</a> 
+
   @include('front.specials')
   @include('front.menu')
   @include('front.drinks')
   @include('front.dessert')
+  @include('front.compose')
 
-  @include('front.footer')
+
  
 
   <!-- Vendor JS Files -->

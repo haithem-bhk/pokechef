@@ -9,6 +9,7 @@ use App\Models\specials;
 use App\Models\orders;
 use App\Models\drinks;
 use App\Models\legumes;
+use App\Models\settings;
 class cartController extends Controller
 {
     //
@@ -41,11 +42,12 @@ class cartController extends Controller
 
      function composeAddToCart(Request $request){
       
-      $price = 0;
+      $base_price = settings::where('settings_key','compose_price')->first()->settings_value;
+      $supp_price = 0;
       foreach ($request['supp'] as $supp ) {
         foreach ($request['supp_prices'] as $prices ) {
           if ($supp == $prices['name']) {
-            $price+=$prices['price'];
+            $supp_price+=$prices['price'];
           }
         }
       }
@@ -54,7 +56,7 @@ class cartController extends Controller
         "id"=>"compose420",
         "name"=>"bowl composé",
         "qty"=>1,
-        "price"=>12+$price,
+        "price"=>$base_price+$supp_price,
         "options"=> ['ingredient' => $request['selected'],'supplement'=>$request['supp']],
         "tax"=>1
       ]);

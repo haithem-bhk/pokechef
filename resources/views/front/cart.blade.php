@@ -154,7 +154,7 @@
         </template>
       </ul>
 
-      <a href="{{ route('paymentPage') }}" class="button" >Checkout</a>
+      <a @if(url()->current() == url("admin/live")) href="{{ route('liveOrder') }}" @else href="{{ route('paymentPage') }}" @endif class="button" >Checkout</a>
       @else
       <a href="/client/login">login</a>
       @endif

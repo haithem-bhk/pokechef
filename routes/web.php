@@ -25,6 +25,9 @@ Route::group(['middleware'=>['web']],function(){
 	Route::get('/admin/getdrinkimage/{imageName}',['uses'=>'platesController@getDrinkImage','as'=>'drinkImage']);
 	Route::get('/admin/getlegumeimage/{imageName}',['uses'=>'platesController@getLegumeImage','as'=>'legumeImage']);
 	Route::get('/admin/getdessertimage/{imageName}',['uses'=>'platesController@getDessertImage','as'=>'dessertImage']);
+	Route::get('/legumes',['uses'=>'indexController@getLegumePage']);
+	Route::get('/composé',['uses'=>'indexController@getComposePage']);
+
 });
 
 Route::group(['middleware'=>['admin']],function(){
@@ -105,13 +108,15 @@ Route::group(['middleware'=>['admin']],function(){
 	Route::get('/admin/employeelist',['uses'=>'dashboardController@getEmployeeList','as'=>'employeeList']);
 	Route::get('/admin/employeeprofile',['uses'=>'dashboardController@getEmployeeProfile','as'=>'employeeProfile']);
 
+	Route::get('/admin/live',['uses'=>'dashboardController@getLive']);
+	Route::post('/admin/liveorder',['uses'=>'dashboardController@postLiveOrder','as'=>'liveOrder']);
+
 	// legume visibility
 	Route::post('/admin/legumevisibility',['uses'=>'indexController@updateVisibility']);
 });
 Route::group(['middleware'=>['auth']],function(){
 Route::post('/cart/add/',['uses'=>'cartController@addToCart','as'=>'add_cart']);
 Route::post('/cart/composeadd/',['uses'=>'cartController@composeAddToCart']);
-Route::get('/legumes',['uses'=>'indexController@getLegumePage']);
 	Route::get('/cart/destroy',['uses'=>'cartController@destroyCart']);
 	Route::post('/cart/update',['uses'=>'cartController@updateCart']);
 	Route::post('/cart/remove',['uses'=>'cartController@deleteCart']);
