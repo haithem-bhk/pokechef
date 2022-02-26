@@ -129,11 +129,13 @@ class dashboardController extends Controller
 
     function getSettingsPage(){
         $video = settings::where('settings_key','header_video')->first()->settings_value;
-        return view('admin.settings',['video'=>$video]);
+        $compose_price =settings::where('settings_key','compose_price')->first()->settings_value;
+        return view('admin.settings',['video'=>$video,'price'=>$compose_price]);
     }
 
     function postSettings(Request $request){
         $video = settings::where('settings_key','header_video')->update(['settings_value'=>$request['video']]);
+        $price = settings::where('settings_key','compose_price')->update(['settings_value'=>$request['price']]);
         return redirect()->back();
     }
 
