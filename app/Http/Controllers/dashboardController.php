@@ -127,4 +127,14 @@ class dashboardController extends Controller
         return redirect()->back()->with('order_id',$order->id);
     }
 
+    function getSettingsPage(){
+        $video = settings::where('settings_key','header_video')->first()->settings_value;
+        return view('admin.settings',['video'=>$video]);
+    }
+
+    function postSettings(Request $request){
+        $video = settings::where('settings_key','header_video')->update(['settings_value'=>$request['video']]);
+        return redirect()->back();
+    }
+
 }

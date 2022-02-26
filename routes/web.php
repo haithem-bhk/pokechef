@@ -111,7 +111,9 @@ Route::group(['middleware'=>['admin']],function(){
 	Route::get('/admin/live',['uses'=>'dashboardController@getLive']);
 	Route::post('/admin/liveorder',['uses'=>'dashboardController@postLiveOrder','as'=>'liveOrder']);
 
-	// legume visibility
+	// Settings
+	Route::get('/admin/settings',['uses'=>'dashboardController@getSettingsPage']);
+	Route::post('/admin/post/settings',['uses'=>'dashboardController@postSettings','as'=>'editSettings']);
 	Route::post('/admin/legumevisibility',['uses'=>'indexController@updateVisibility']);
 });
 Route::group(['middleware'=>['auth']],function(){

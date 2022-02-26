@@ -66,6 +66,10 @@
             <li class="menu-header">Achive</li>
             <li><a class="nav-link" href="/admin/records"><i class="material-icons">archive</i><span>Archive</span></a></li>
 
+            <li class="menu-header">Settings</li>
+
+            <li><a class="nav-link" href="/admin/settings"><i class="material-icons">settings</i><span>Settings</span></a></li>
+
 
             
           </ul>
