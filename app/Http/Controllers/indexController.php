@@ -75,10 +75,10 @@ class indexController extends Controller
         // $admin->email = "admin@admin.com";
         // $admin->password = bcrypt("12345678");
         // $admin->save();
-        // $settings = new settings();
-        // $settings->settings_key = "compose_price";
-        // $settings->settings_value = "12";
-        // $settings->save();
+        $settings = new settings();
+        $settings->settings_key = "compose_price";
+        $settings->settings_value = "12";
+        $settings->save();
         $settings = new settings();
         $settings->settings_key = "header_video";
         $settings->settings_value = "https://www.youtube.com/watch?v=oDoya3J-xjU";
