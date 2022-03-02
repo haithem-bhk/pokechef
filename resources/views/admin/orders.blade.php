@@ -39,8 +39,8 @@ Food Orders
                           <tr>
                             <td></td>
                             <td>Name</td>
-                            <td>Ingredients</td>
-                            <td>Supplements</td>
+                            <td>Ingredients (Bowl Composé)</td>
+                            <td>Supplements (Bowl Composé)</td>
                             <td>Quantity</td>
 
                           </tr>
