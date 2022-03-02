@@ -23,12 +23,14 @@
 @include('front.front_links')
   @yield('script')
   <script type="text/javascript">
-    $('.mobile-nav-toggle').click(function(){
-      
-      $('#navbar').toggleClass('navbar-mobile')
+    $(document).ready(function(){
+      $('.mobile-nav-toggle').click(function(){
+              $('#navbar').toggleClass('navbar-mobile')
     $(this).toggleClass('bi-list')
     $(this).toggleClass('bi-x')
     });
+    });
+    
 
   </script>
   

@@ -116,12 +116,12 @@
   /**
    * Mobile nav toggle
    */
- $('.mobile-nav-toggle').click(function(){
+ // $('.mobile-nav-toggle').click(function(){
       
-      $('#navbar').toggleClass('navbar-mobile')
-    $(this).toggleClass('bi-list')
-    $(this).toggleClass('bi-x')
-    });
+ //      $('#navbar').toggleClass('navbar-mobile')
+ //    $(this).toggleClass('bi-list')
+ //    $(this).toggleClass('bi-x')
+ //    });
 
   /**
    * Mobile nav dropdowns activate

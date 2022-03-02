@@ -262,7 +262,9 @@
     }
   </script>
   <script src="{{URL::to('landing/assets/js/main.js')}}"></script>
+
   <script type="text/javascript">
+    
     var token = '{{Session::token()}}' ;
     var exist = '{{Session::has('order')}}';
     if (exist){
