@@ -150,7 +150,7 @@
           <span class="item-price" x-text="item.price"></span>
           Total Price: <span style="color:#cda45e;">€</span>
           <span class="total-price" x-text="item.subtotal" ></span>
-          <span class="item-quantity">Quantity <input @change="updateCart(index,$event.target.value)" :value="item.qty" min="1" type="number" class="quantity" ></span>
+          <span class="item-quantity">Quantity <input style="border-radius: 0.5rem;" @change="updateCart(index,$event.target.value)" :value="item.qty" min="1" type="number" class="quantity" ></span>
           <a class="remove-cart-item" @click="removeItem(index)"><i class="fa fa-times close"></i></a>
           </li>
         </template>
