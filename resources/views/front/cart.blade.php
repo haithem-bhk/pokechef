@@ -109,6 +109,7 @@
     border-radius: 3px;
     padding: 20px;
     top: 80%;
+    text-align: center;
   }
   }
   @media screen and (min-width: 481px) and (max-width: 1024px) {
@@ -126,12 +127,13 @@
     border-radius: 3px;
     padding: 20px;
     top: 90%;
+    text-align: center;
   }
   }
 </style>
 
 <div class="shopping-cart" style="display: none;">
-  @auth("web")
+ @if(auth()->guard('admin')->check()|| auth()->guard('web')->check())
       <div class="shopping-cart-header">
         <span class="badge" id="item-total-quantity" x-text="count"></span>
         <div class="shopping-cart-total">
@@ -154,9 +156,9 @@
         </template>
       </ul>
 
-      <a @if(url()->current() == url("admin/live")) href="{{ route('liveOrder') }}" @else href="{{ route('paymentPage') }}" @endif class="button" >Checkout</a>
+      <a @if(auth()->guard('admin')->check()) href="{{ route('liveOrder') }}" @else href="{{ route('paymentPage') }}" @endif class="button" >Checkout</a>
       @else
-      <a href="/client/login">login</a>
+      <a class="book-a-table-btn scrollto d-lg-flex" style="justify-content: center;" href="/client/login">Login</a>
       @endif
     </div> <!--end shopping-cart -->
     

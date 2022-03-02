@@ -32,8 +32,7 @@
           @foreach(explode('/',$drink->ingredients) as $ingredient)
           {{$ingredient}} @if(!$loop->last) - @endif
           @endforeach
-        </div>
-        @auth("web")
+          @if(auth()->guard('admin')->check()|| auth()->guard('web')->check())
         <button class="add-to-cart-button" @click="addToCart({{$drink->id}},'drink')">
           <svg class="add-to-cart-box box-1" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="2" fill="#ffffff"/></svg>
           <svg class="add-to-cart-box box-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="2" fill="#ffffff"/></svg>
@@ -43,6 +42,9 @@
           <span class="added-to-cart"></span>
         </button>
         @endif
+        
+        </div>
+
       </div>
       @endif
       @endforeach

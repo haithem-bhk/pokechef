@@ -31,7 +31,7 @@
     <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     
     <nav id="navbar" class="navbar order-last order-lg-0">
-      <a class="cart" ><i class="fa fa-shopping-cart"></i></a>
+      <a class="cart" style="padding-right: 10px !important;" ><i class="fa fa-shopping-cart"></i></a>
       <ul>
         <li><a class="nav-link scrollto active" href="/">Home</a></li>
         <li><a class="nav-link scrollto" href="#plates">Plates</a></li>
@@ -49,10 +49,12 @@
         <li><a class="nav-link scrollto" href="/client/logout">Logout</a></li>
 
         @endif
+        @if(!auth()->guard('admin')->check())
         @guest 
         <li><a class="nav-link scrollto" href="/client/register">Register</a></li>
+        <li><a class="nav-link scrollto" href="/client/login">Login</a></li>
 
-        <a href="/client/login" class="book-a-table-btn scrollto d-none d-lg-flex">Login</a>
+        @endif
 
         @endif
         </ul>

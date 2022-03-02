@@ -55,7 +55,7 @@
 
             <li class="menu-header">Live</li>
 
-            <li><a class="nav-link" href="/admin/live"><i class="material-icons">live_tv</i><span>Live</span></a></li>
+            <li><a class="nav-link" href="/"><i class="material-icons">live_tv</i><span>Live</span></a></li>
             
 
             <li class="menu-header">Management</li>

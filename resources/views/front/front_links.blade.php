@@ -6,7 +6,6 @@
   <script src="{{URL::to('landing/assets/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{URL::to('landing/assets/js/main.js')}}"></script>
   <script src="{{URL::to('landing/assets/js/cart_btn.js')}}"></script>
   <script  src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -27,7 +26,7 @@
 
       },
       addToCart(id,type){
-          // console.log(this.total);
+          console.log("mesg");
           $.ajaxSetup({
             headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -128,7 +127,6 @@
     function bowlcompose() {
       return {
         step: 1, 
-        
         base : {!! \App\Models\bowlBase::all() !!},
         topping : {!! \App\Models\bowlTopping::all() !!},
         sauce : {!! \App\Models\bowlSauce::all() !!},
@@ -144,7 +142,6 @@
         selected_supp:[],
         supp:[],
         init(){
-         
 
           Object.entries(this.base).map(item => {
             if ( item[1].supp_price && item[1].supp_price> 0 ){
@@ -261,3 +258,5 @@
       }
     }
   </script>
+  <script src="{{URL::to('landing/assets/js/main.js')}}"></script>
+

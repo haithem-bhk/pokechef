@@ -27,12 +27,18 @@ Route::group(['middleware'=>['web']],function(){
 	Route::get('/admin/getdessertimage/{imageName}',['uses'=>'platesController@getDessertImage','as'=>'dessertImage']);
 	Route::get('/legumes',['uses'=>'indexController@getLegumePage']);
 	Route::get('/composé',['uses'=>'indexController@getComposePage']);
+	Route::post('/cart/add/',['uses'=>'cartController@addToCart','as'=>'add_cart']);
+	Route::post('/cart/composeadd/',['uses'=>'cartController@composeAddToCart']);
+	Route::get('/cart/destroy',['uses'=>'cartController@destroyCart']);
+	Route::post('/cart/update',['uses'=>'cartController@updateCart']);
+	Route::post('/cart/remove',['uses'=>'cartController@deleteCart']);
 
 });
 
 Route::group(['middleware'=>['admin']],function(){
 	// orders
 	Route::get('/admin/orders',['uses'=>'dashboardController@getOrders','as'=>'getOrders']);
+	Route::post('/admin/orders/update',['uses'=>'dashboardController@updateOrder']);
 
 	// add new item page
 	Route::get('/admin/newpost',['uses'=>'dashboardController@getNewPost','as'=>'newPost']);
@@ -109,19 +115,16 @@ Route::group(['middleware'=>['admin']],function(){
 	Route::get('/admin/employeeprofile',['uses'=>'dashboardController@getEmployeeProfile','as'=>'employeeProfile']);
 
 	Route::get('/admin/live',['uses'=>'dashboardController@getLive']);
-	Route::post('/admin/liveorder',['uses'=>'dashboardController@postLiveOrder','as'=>'liveOrder']);
+	Route::get('/admin/liveorder',['uses'=>'dashboardController@postLiveOrder','as'=>'liveOrder']);
 
 	// Settings
 	Route::get('/admin/settings',['uses'=>'dashboardController@getSettingsPage']);
 	Route::post('/admin/post/settings',['uses'=>'dashboardController@postSettings','as'=>'editSettings']);
 	Route::post('/admin/legumevisibility',['uses'=>'indexController@updateVisibility']);
+	
 });
 Route::group(['middleware'=>['auth']],function(){
-Route::post('/cart/add/',['uses'=>'cartController@addToCart','as'=>'add_cart']);
-Route::post('/cart/composeadd/',['uses'=>'cartController@composeAddToCart']);
-	Route::get('/cart/destroy',['uses'=>'cartController@destroyCart']);
-	Route::post('/cart/update',['uses'=>'cartController@updateCart']);
-	Route::post('/cart/remove',['uses'=>'cartController@deleteCart']);
+
 	Route::get('/cart/checkout',['uses'=>'cartController@checkout']);
 	Route::get('/client/logout',['uses'=>'indexController@logout','as'=>'clientLogout']);
 	Route::get('/cart/payment',['uses'=>'paymentController@paymentPage','as'=>'paymentPage']);

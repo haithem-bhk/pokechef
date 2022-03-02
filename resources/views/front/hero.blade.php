@@ -1,5 +1,5 @@
 <!-- ======= Hero Section ======= -->
-  <section id="hero" style="background: url({{URL::to('landing/assets/img/banner.jfif')}}) top center !important; background-repeat: no-repeat !important; background-size: cover !important;" class="d-flex align-items-center">
+  <section id="hero" style="background: url({{URL::to('landing/assets/img/banner.jpeg')}}) top center !important; background-repeat: no-repeat !important; background-size: cover !important;" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">

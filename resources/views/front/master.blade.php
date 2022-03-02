@@ -1,4 +1,3 @@
-@extends('front.front_links')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +22,15 @@
   <!-- Vendor JS Files -->
 @include('front.front_links')
   @yield('script')
+  <script type="text/javascript">
+    $('.mobile-nav-toggle').click(function(){
+      
+      $('#navbar').toggleClass('navbar-mobile')
+    $(this).toggleClass('bi-list')
+    $(this).toggleClass('bi-x')
+    });
+
+  </script>
 </body>
 
 </html>

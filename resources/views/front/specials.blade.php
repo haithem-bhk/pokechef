@@ -54,8 +54,9 @@
                   {{$ingredient}} @if(!$loop->last) - @endif 
                 @endforeach</p>
                 <p><b>Price:</b> €{{$special->price}}</p>
+                 
               </div>
-              @auth("web")
+              @if(auth()->guard('admin')->check()|| auth()->guard('web')->check())
               <button class="add-to-cart-button cart-btn-special " @click="addToCart({{$special->id}},'special')">
                 <svg class="add-to-cart-box box-1" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="2" fill="#ffffff"/></svg>
                 <svg class="add-to-cart-box box-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="2" fill="#ffffff"/></svg>
@@ -65,6 +66,7 @@
                 <span class="added-to-cart"></span>
               </button>
               @endif
+             
               <div class="col-lg-4 text-center order-1 order-lg-2">
                 <img src="{{route('specialImage', ['imageName' => $special->image_path ])}}" alt="" class="img-fluid">
               </div>

@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    overflow: scroll !important;
+    
   }
   .form-checkbox,
   .form-radio {
@@ -94,7 +94,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Legumes</h2>
+          <h2>Bowl Composé</h2>
           <ol>
             <li><a href="/">Home</a></li>
             
@@ -104,7 +104,7 @@
       </div>
     </section>
 
-    <section id="menu" style="height: 41rem;" class="menu section-bg">
+    <section id="menu" style="overflow: inherit !important;" class="menu section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -382,12 +382,14 @@
         <button
         style = "background-color:#cda45e !important;"
         x-show="step < 6"
-        @click="checkSelection(step)"
+        @if(auth()->guard('admin')->check()|| auth()->guard('web')->check()) @click="checkSelection(step)"  @endif
+        @guest @click="warningpopup('Login First')" @endif
         class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
         >Next</button>
 
         <button
-        @click="addComposeToCart(selected,selected_supp,supp)"
+        @if(auth()->guard('admin')->check()|| auth()->guard('web')->check()) @click="addComposeToCart(selected,selected_supp,supp)" @endif
+        
         style = "background-color:#cda45e !important;"
         x-show="step === 6" 
         class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
@@ -408,7 +410,7 @@
 
 
 
-@include('front.footer')
+
 <!-- Vendor JS Files -->
 @include('front.front_links')
 @yield('script')

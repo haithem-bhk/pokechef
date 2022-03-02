@@ -17,6 +17,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+        if(auth()->guard('admin')->check()){
+            return redirect()->route('getOrders');
+        }
         return view('auth.login');
     }
 

@@ -27,17 +27,22 @@ Food Orders
                                 <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                               </div>
                             </th> --}}
-                            <th colspan="2">Order</th>
+                            <th>#</th>
+                            <th colspan="4">Order</th>
                             <th>Total</th>
-                            <th>Delivery</th>
+                            <th>Pick up Time</th>
                             <th>Status</th>
                             <th>Complete</th>
                             <th>Incomplete</th>
 
                           </tr>
                           <tr>
+                            <td></td>
                             <td>Name</td>
+                            <td>Ingredients</td>
+                            <td>Supplements</td>
                             <td>Quantity</td>
+
                           </tr>
                         </thead>
                         <tbody>
@@ -51,10 +56,41 @@ Food Orders
                                 <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                               </div>
                             </td> --}}
-                            
+                            <td x-text="item.id">
+                              
+                            </td>
                             <td>
                               <template x-for="(itm,idx) in JSON.parse(item.cart_content)">
                                 <div x-text="itm.name"> </div>
+                              </template>
+                            </td>
+                            <td>
+                              <template x-for="(itm,idx) in JSON.parse(item.cart_content)">
+                                <template x-if="itm.options.type === 'compose'">
+                                  <div>
+                                    <div x-text="itm.options.ingredient.base"></div>
+                                    <div x-text="itm.options.ingredient.topping"></div>
+                                    <div x-text="itm.options.ingredient.proteine"></div>
+                                    <div x-text="itm.options.ingredient.garniture"></div>
+                                    <div x-text="itm.options.ingredient.sauce"></div>
+                                  </div>
+                                </template>
+                              </template>
+                            </td>
+                            <td>
+                              <template x-for="(itm,idx) in JSON.parse(item.cart_content)">
+                                <template x-if="itm.options.type === 'compose'">
+                                  <template x-for = "(supp,key) in itm.options.supplement">
+                                    <div x-text="supp"></div>
+                                  </template>
+                                  {{-- <div>
+                                    <div x-text="itm.options.supplement.base"></div>
+                                    <div x-text="itm.options.supplement.topping"></div>
+                                    <div x-text="itm.options.supplement.proteine"></div>
+                                    <div x-text="itm.options.supplement.garniture"></div>
+                                    <div x-text="itm.options.supplement.sauce"></div>
+                                  </div> --}}
+                                </template>
                               </template>
                             </td>
                             <td>
@@ -65,12 +101,14 @@ Food Orders
                             <td x-text="item.total">
                               
                             </td>
-                            <td>1 Rue X </td>
+                            <td x-text="item.pickup_time">
+                              
+                            </td>
                             <td>
                               <div class="badge badge-warning badge-shadow" x-text="item.status"></div>
                             </td>
-                            <td><a href="#" class="btn btn-primary">Complete</a></td>
-                            <td><a href="#" class="btn btn-danger">Incomplete</a></td>
+                            <td><a href="#" @click="updateOrder(item.id,'complete')" class="btn btn-primary">Complete</a></td>
+                            <td><a href="#" @click="updateOrder(item.id,'incomplete')" class="btn btn-danger">Incomplete</a></td>
                           </tr>
                           </template>
                           

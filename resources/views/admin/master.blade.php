@@ -237,8 +237,31 @@
 <script type="text/javascript">
     function getOrders(){
       return {
-        orders : {!! \App\Models\orders::all() !!},
-        
+        orders : {!! \App\Models\orders::orderByDesc('created_at')->get() !!},
+       
+        updateOrder(id,operation){
+          $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+          $.ajax({
+            type:"post",
+            url:"/admin/orders/update",
+            data:{
+              id:id,
+              operation:operation,
+            },
+            success: (response) =>{
+              iziToast.success({
+              title: 'Done',
+              message: 'Order Updated',
+              position: 'topRight'
+            });
+              this.orders = response.orders;
+            }
+          });
+        }
       }
     }
   </script>

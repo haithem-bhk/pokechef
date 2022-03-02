@@ -11,14 +11,16 @@ use App\Models\legumes;
 use App\Models\desserts;
 use App\Models\settings;
 use Carbon\Carbon;
+use Cart;
 use Illuminate\Support\Facades\Storage;
 
 class dashboardController extends Controller
 {
     // orders
     function getOrders() {
-        $orders = orders::all();
-    	return view('admin.orders',['orders'=>$orders]);
+        
+
+    	return view('admin.orders');
     }
 
     // plates 
@@ -117,7 +119,7 @@ class dashboardController extends Controller
 
     function postLiveOrder() {
         $order = new orders();
-        $order->user_id = auth()->user()->id;
+        $order->user_id = -1;
         $order->cart_content = json_encode(Cart::content());
         $order->total =Cart::total();
         $order->pickup_time = Carbon::now();
@@ -137,6 +139,19 @@ class dashboardController extends Controller
         $video = settings::where('settings_key','header_video')->update(['settings_value'=>$request['video']]);
         $price = settings::where('settings_key','compose_price')->update(['settings_value'=>$request['price']]);
         return redirect()->back();
+    }
+
+    function updateOrder(Request $request){
+        // dd($request->all());
+        $order = orders::find($request['id']);
+        if ($request['operation'] === 'complete'){
+            $order->status = 'Paid At Restaurant';
+            $order->update();
+        } else if ($request['operation'] === 'incomplete'){
+            $order->status = 'Canceled At Restaurant';
+            $order->update();
+        }
+        return response()->json(['orders'=>orders::orderByDesc('created_at')->get()]);
     }
 
 }

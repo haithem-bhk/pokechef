@@ -57,7 +57,7 @@ class cartController extends Controller
         "name"=>"bowl composé",
         "qty"=>1,
         "price"=>$base_price+$supp_price,
-        "options"=> ['ingredient' => $request['selected'],'supplement'=>$request['supp']],
+        "options"=> ['type'=>'compose','ingredient' => $request['selected'],'supplement'=>$request['supp']],
         "tax"=>1
       ]);
       return response()->json(["cart"=>Cart::content(), "total"=>Cart::total(), "count"=>Cart::count(),"tax"=>Cart::tax()]);
