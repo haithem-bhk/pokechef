@@ -414,6 +414,7 @@
 <!-- Vendor JS Files -->
 @include('front.front_links')
 @yield('script')
+
 </body>
 
 

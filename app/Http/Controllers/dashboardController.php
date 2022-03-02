@@ -126,7 +126,7 @@ class dashboardController extends Controller
         $order->status = "At Restaurent";
         $order->save();
         Cart::destroy();
-        return redirect()->back()->with('order_id',$order->id);
+        return redirect()->back()->with('order',$order->id);
     }
 
     function getSettingsPage(){

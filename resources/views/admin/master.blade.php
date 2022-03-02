@@ -47,6 +47,9 @@
   <script src="{{URL::to('otika/assets/js/scripts.js')}}"></script>
   <!-- Custom JS File -->
   <script src="{{URL::to('otika/assets/js/custom.js')}}"></script>
+  <script src="{{URL::to('assets/bundles/sweetalert/sweetalert.min.js')}}"></script>
+  <!-- Page Specific JS File -->
+  <script src="{{URL::to('assets/js/page/sweetalert.js')}}"></script>
 
   <script type="text/javascript">
     $(document).ready(function(){

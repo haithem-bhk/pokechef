@@ -12,6 +12,9 @@
   crossorigin="anonymous"></script>
   <script src="{{URL::to('otika/assets/bundles/izitoast/js/iziToast.min.js')}}"></script>
 <script src="{{URL::to('otika/assets/js/page/toastr.js')}}"></script>
+<script src="{{URL::to('otika/assets/bundles/sweetalert/sweetalert.min.js')}}"></script>
+  <!-- Page Specific JS File -->
+  <script src="{{URL::to('otika/assets/js/page/sweetalert.js')}}"></script>
   <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
   <script type="text/javascript">
    function getData(){
@@ -259,4 +262,11 @@
     }
   </script>
   <script src="{{URL::to('landing/assets/js/main.js')}}"></script>
+  <script type="text/javascript">
+    var token = '{{Session::token()}}' ;
+    var exist = '{{Session::has('order')}}';
+    if (exist){
+      swal('Order Done', 'Your Order Number Is ' + {{Session::get('order')}}, 'success');
+    }
+  </script>
 

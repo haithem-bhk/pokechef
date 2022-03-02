@@ -44,6 +44,6 @@ class paymentController extends Controller
         return back()->with('msg', $exception->getMessage());
     }
 
-    return redirect()->route('index')->with('msg', 'Product purchased successfully!');
+    return redirect()->route('index')->with('order', $order->id);
 }
 }
