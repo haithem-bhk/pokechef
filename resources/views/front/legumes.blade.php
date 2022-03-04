@@ -88,7 +88,7 @@
       <div class="col-lg-6 menu-item filter-specialty">
         <img src="{{route('legumeImage', ['imageName' => $legume->image_path ])}}" class="menu-img" alt="">
         <div class="menu-content">
-          <a href="#" class="item-name" >{{$legume->name}}</a><span class="item-price">€{{$legume->price}}</span>
+          <a href="#" class="item-name" >{{$legume->name}}</a><span class="item-price">€{{$legume->price}} /{{$legume->category}} </span>
         </div>
         <div class="menu-ingredients">
           @foreach(explode('/',$legume->ingredients) as $ingredient)

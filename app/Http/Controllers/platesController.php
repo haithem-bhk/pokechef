@@ -439,6 +439,7 @@ class platesController extends Controller
         $legume->ingredients = implode('/',$request['ingredients']);
         $legume->description = $request['description'];
         $legume->visible = $request['visible'];
+        $legume->category = $request['category'];
         $legume->image_path = $imagename;
 
         $legume->save();
@@ -466,7 +467,7 @@ class platesController extends Controller
         $legume->ingredients = implode('/',array_filter($request['ingredients']));
         $legume->description = $request['description'];
         $legume->visible = $request['visible'];
-        
+        $legume->category = $request['category'];
         if ($image) {
            $validation = Validator::make($request->all(),[
             'image'  => 'mimes:png,jpg,jpeg,bmp',

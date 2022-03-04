@@ -49,6 +49,7 @@ Legumes List
                     <th>Ingredients</th>
                     <th>Image</th>
                     <th>Price</th>
+                    <th>Sell By</th>
                     <th>Visibility</th>
                     <th>Created At</th>
 
@@ -87,6 +88,7 @@ Legumes List
 
                     </td>
                     <td>€{{$legume->price}}</td>
+                    <td>{{$legume->category}}</td>
                     <td>
                       @if($legume->visible)
                       <div class="badge badge-primary">Published</div>

@@ -19,11 +19,11 @@
       </div>
     </div> --}}
 
-    <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+    <div class="row menu-container">
 
       @foreach($plates as $plate)
       @if($plate->visible)
-      <div class="col-lg-6 menu-item filter-specialty">
+      <div class="col-lg-6 menu-item">
         <img src="{{route('plateImage', ['imageName' => $plate->image_path ])}}" class="menu-img" alt="">
         <div class="menu-content">
           <a href="#" class="item-name" >{{$plate->name}}</a><span class="item-price">€{{$plate->price}}</span>

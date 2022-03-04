@@ -12,18 +12,19 @@
       <div class="col-lg-12 d-flex justify-content-center">
         <ul id="menu-flters">
           <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-starters">Asirs</li>
-          <li data-filter=".filter-salads">Jus</li>
-          <li data-filter=".filter-specialty">Smoothie</li>
+          <li data-filter=".Assir">Assirs</li>
+          <li data-filter=".Jus">Jus</li>
+          <li data-filter=".Smoothie">Smoothie</li>
+          <li data-filter=".Milkshake">Milkshake</li>
         </ul>
       </div>
     </div>
 
-    <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+    <div class="row grid menu-container" data-aos="fade-up" data-aos-delay="200">
 
       @foreach($drinks as $drink)
       @if($drink->visible)
-      <div class="col-lg-6 menu-item filter-specialty">
+      <div class="col-lg-6 menu-item grid-element {{$drink->category}}">
         <img src="{{route('drinkImage', ['imageName' => $drink->image_path ])}}" class="menu-img" alt="">
         <div class="menu-content">
           <a href="#" class="item-name" >{{$drink->name}}</a><span class="item-price">€{{$drink->price}}</span>

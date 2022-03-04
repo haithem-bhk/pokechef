@@ -271,4 +271,17 @@
       swal('Order Done', 'Your Order Number Is ' + {{Session::get('order')}}, 'success');
     }
   </script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  <script type="text/javascript">
+    $grid= $('.grid').isotope({
+      itemSelector : '.grid-element',
+      layoutMode : 'fitRows'
+    });
+    $grid.isotope({filter: '.Jus'})
+    $grid.isotope({ filter: '*' });
+    $('#menu-flters').on( 'click', 'li', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+  </script>
 

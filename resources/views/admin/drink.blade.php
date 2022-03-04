@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-New Post
+New Drink
 @endsection
 @section('content')
 @include('admin.navbar')
